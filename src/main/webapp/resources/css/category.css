@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+	*{margin: 0; padding: 0; box-sizing: border-box;}
+ul,li,ol{list-style: none;}
+a{text-decoration: none;}
+
+.inner{
+	width: 1200px; margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.others{
+	width: 25%;
+}
+
+.accom-area{
+	margin-left: 20px;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+}
+
+.accom-area .btn{
+	background-color:none;
+}
+
+.accom-area a{
+	padding: 20px 20px 30px 0;
+	width: 850px;
+	height: 280px;
+	display: flex;
+	justify-content: space-between;
+	text-decoration: none;
+	color: black;
+	border-bottom: 1px solid rgb(180, 178, 178);
+}
+
+.accom-area a .pic{
+	width: 45%;
+}
+
+.accom-area a .pic img{
+	height: 100%;
+	border-radius: 15px;
+}
+
+
+.accom-area .accom-info{
+	width: 55%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.accom-area .accom-info .bu_info{
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+}
+
+.accom-area a .bu_info h2{
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.accom-area a .bu_info p{
+	font-size: 14px;
+	color: rgb(108, 106, 106);
+}
+
+
+.accom-area .accom-info .min-price{
+	display: flex;
+	justify-content: flex-end;
+}
+
+
+.accom-area .accom-info .min-price p{
+	font-size: 18px;
+	font-weight: 600;
+}

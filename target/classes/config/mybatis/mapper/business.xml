@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="b">
+
+	<!-- 카테고리별 숙소 검색 -->
+	<select id="category" parameterType="int" resultType="business">
+		SELECT DISTINCT B.*, MIN_PRICE
+		FROM BUSINESS B
+		JOIN (
+		SELECT BU_EMAIL, MIN(RO_PRICE) AS MIN_PRICE
+		FROM ROOM
+		GROUP BY BU_EMAIL
+		) T ON B.BU_EMAIL = T.BU_EMAIL
+		WHERE B.BU_ID= #{bu_id}
+	</select>
+
+
+
+	<select id="bu_loginCheck" parameterType="String"
+		resultType="business">
+		select * from business where bu_email = #{bu_email}
+	</select>
+
+	<insert id="insert" parameterType="business">
+		insert into business values(
+		#{bu_email},
+		#{bu_password},
+		#{bu_tel},
+		#{bu_name},
+		#{bu_addr},
+		#{bu_title},
+		0,
+		#{bu_picture},
+		#{bu_id},
+		0
+		)
+	</insert>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

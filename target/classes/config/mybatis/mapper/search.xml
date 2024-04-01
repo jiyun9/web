@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="s">
+
+
+	<!-- 예약 가능한 숙박 시설 검색 -->
+	<select id="accommdation_list" parameterType="java.util.HashMap"
+		resultType="search">
+		SELECT DISTINCT
+		BU.BU_EMAIL,BU.BU_TITLE,BU.BU_ADDR,BU.BU_PICTURE,T.MIN_PRICE
+		FROM ROOM rm
+		LEFT OUTER JOIN RESERVATION rv
+		ON rm.RO_NUM = rv.RO_NUM
+		/*LEFT OUTER JOIN RESERVED rd
+		ON rm.RO_NUM = rd.RO_NUM*/
+		LEFT OUTER JOIN BUSINESS bu
+		ON rm.BU_EMAIL = bu.BU_EMAIL
+		JOIN (
+		SELECT BU_EMAIL, MIN(RO_PRICE) AS MIN_PRICE
+		FROM ROOM
+		GROUP BY BU_EMAIL
+		) T ON BU.BU_EMAIL = T.BU_EMAIL
+		WHERE (RV.RO_NUM IS NULL OR RV.CHECKIN_DATE NOT BETWEEN #{checkin_d} AND
+		#{checkout_d})
+		AND (BU.BU_TITLE LIKE '%${txt}%' OR BU.BU_ADDR LIKE '%${txt}%')
+		AND RM.RO_COUNT >= ${count}
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

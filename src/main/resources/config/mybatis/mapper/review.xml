@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rev">
+	<select id="review_list" parameterType="String" resultType="review">
+		SELECT R.*, ROOM.RO_NAME
+		FROM REVIEW R
+		JOIN ROOM ON R.RO_NUM = ROOM.RO_NUM
+		WHERE ROOM.BU_EMAIL = #{bu_email}
+	</select>
+	
+	
+	<update id="review_reply" parameterType="java.util.HashMap" >
+		UPDATE REVIEW SET
+		CONTENT_REPLY = #{replyBox}
+		WHERE REV_NUM = ${rev_num}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

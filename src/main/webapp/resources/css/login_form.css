@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul,li,ol{list-style: none;}
+a{text-decoration: none;}
+
+main .content{
+    margin-top: 100px;
+}
+
+.content .inner{
+    margin: 0 auto;
+    max-width: 400px;
+    
+}
+
+/* logo-box */
+
+.content .inner .logo-box{
+    padding: 30px 0;
+    /* background-color: pink; */
+}
+
+.content .inner .logo-box .logo{
+    text-align: center;
+    
+}
+.content .inner .logo-box .logo a{
+    font-size : 32px;
+    font-weight : 600;
+    color: red;
+}
+
+
+/* login-title */
+
+.content .inner .login-title{
+    position:relative;
+    display: flex; justify-content: center;
+    padding-bottom: 40px;
+    /* background-color: yellow; */
+}
+
+.content .inner .login-title .line{
+    position: absolute;
+    height: 1px; width: 100%;
+    top: 9px;
+    background-color: #ebebeb;
+}
+
+.content .inner .login-title .caption{
+    position: absolute;
+    padding: 0 8px;
+    font-size: 15px;
+    color: #858585;;
+    background-color: #fff;
+    z-index: 1;
+    
+}
+
+/* login-button-group */
+
+.login-button-group{
+    display: flex; flex-direction: column;
+}
+
+.login-button-group button{
+    margin-bottom: 15px;
+    height: 52px;
+    border-radius: 8px;
+    border: none;
+}
+
+.login-button-group button:hover{
+    cursor: pointer;
+}
+
+.login-button-group .kakao-login{
+    color: #3c1e1e;
+    background-color:#fbda00;
+}
+
+.login-button-group .naver-login{
+    color: #fff;
+    background-color: rgb(3, 199, 90);
+}
+.login-button-group .naver-login a{
+    color: #fff;
+}
+
+.login-button-group .email-login{
+    color: #1273e4;
+    background-color: #f2f8ff;
+}
+
+.login-button-group button .btn_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-button-group button .btn_content span{
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}

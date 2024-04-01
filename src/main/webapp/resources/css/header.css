@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'YClover-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/YClover-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul,li,ol{list-style: none;}
+a{text-decoration: none;}
+
+
+/* header */
+
+.header{
+    height: 76px;
+    border-bottom:1px solid  #d1cccc;
+}
+
+.header .col{height: 76px;}
+
+.header h1{
+    margin: 0 0 0 20px;
+    text-align: center;
+    font-size: 26px;
+    font-family: 'YClover-Bold';
+    color: #A9E81F;
+}
+
+.header ul{
+    margin: 0;
+    padding-right: 30px;
+}
+
+.header ul li{
+    font-size: 16px;
+}
+
+.header ul li a{
+    margin-left: 20px;
+    font-weight: 500;
+    color:rgb(43, 42, 41);
+}
+
+
+.header .search_option.hidden{
+    height: 60%;
+    display: flex; justify-content: center;
+    align-items: center;
+    background-color:rgb(231, 229, 229);
+    border-radius: 10px;
+    display: none;
+}
+
+.header .search_option{
+    height: 60%;
+    display: flex; justify-content: center;
+    align-items: center;
+    background-color:rgb(231, 229, 229);
+    border-radius: 10px;
+    display: flex;
+}
+
+.header .search_option input{
+    font-size: 13px;
+    height: 70%;
+    width: 20%;
+    border: none;
+    border-right: 1px solid rgb(148, 148, 148);
+    background-color: rgb(231, 229, 229);
+}
+
+.header .search_option .checkin{
+    margin: 0 10px;
+    width: 25%;
+}
+
+.header .search_option .checkout{
+    margin: 0 10px;
+    width: 25%;
+}
+
+.header .search_option span{
+    margin-left: 5px;
+    font-size: 13px;
+}
+.header .search_option select{
+    margin-left: 5px;
+    font-size: 13px;
+}

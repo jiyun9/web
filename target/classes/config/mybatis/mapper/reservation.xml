@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rv">
+
+	<!-- 예약 전체조회 -->
+	<select id="select" resultType="reservation" parameterType="String">
+		SELECT *
+		FROM RESERVATION rv
+		INNER JOIN ROOM rm ON rv.RO_NUM = rm.RO_NUM
+		WHERE rm.BU_EMAIL = #{bu_email} 
+	</select>
+
+	<!-- 사업자 예약 검색 -->
+	<select id="search" parameterType="java.util.HashMap"
+		resultType="reservation">
+		SELECT *
+		FROM RESERVATION r
+		JOIN ROOM rm ON r.RO_NUM = rm.RO_NUM
+		WHERE rm.BU_EMAIL = #{bu_email}
+		AND r.${box} = #{text}
+	</select>
+
+	<!--사업자 예약 상태 체크인으로 변경 -->
+	<update id="checkIn" parameterType="String">
+		UPDATE RESERVATION SET STATUS
+		= '입실완료' WHERE RE_NUM = #{num}
+	</update>
+
+	<update id="checkOut" parameterType="String">
+		UPDATE RESERVATION SET
+		STATUS = '이용완료' WHERE RE_NUM = #{num}
+	</update>
+	
+	
+	<!-- 예약정보 생성 -->
+	<insert id="reserve" parameterType="reservation">
+		INSERT INTO RESERVATION VALUES(
+			SEQ_RE_NUM.NEXTVAL,
+			#{m_email},
+			#{ro_num},
+			#{bu_title},
+			#{ro_name},
+			#{checkin_date},
+			#{checkout_date},
+			#{status},
+			#{payment},
+			#{price},
+			TO_CHAR(SYSDATE, 'YYYY-MM-DD'),
+			#{m_tel}
+		)
+	</insert>
+	
+	
+	<!-- member -->
+	<!-- 예약정보 조회 -->
+	<select id="rev_list" resultType="reservation" parameterType="String">
+		SELECT * FROM RESERVATION
+		WHERE M_EMAIL = #{m_email}
+	</select>
+	
+	
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

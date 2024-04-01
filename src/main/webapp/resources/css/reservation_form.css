@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul,li,ol{list-style: none;}
+a{text-decoration: none;}
+
+.inner{
+    width: 1200px; margin : 0 auto;
+    display: flex;
+    /* background-color: yellow; */
+}
+.inner .content{
+    width: 70%;
+    /* background-color: pink; */
+}
+.inner .content .top{
+    border-bottom: 1px solid lightgray;
+    margin-right: 100px;
+}
+
+.inner .content .reservation_form{
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: aqua; */
+}
+
+.reservation_form .title_box{
+    margin: 30px 0;
+    display: flex;
+    align-content: center;
+}
+
+.reservation_form .title_box button{
+    margin-right: 10px;
+    font-size: 24px;
+    background-color: #fff;
+    border: none;
+}
+
+.reservation_form .title_box button:hover{
+    cursor: pointer;
+}
+
+.reservation_form .title_box h1{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.reservation_form .user-info h2{
+    font-size:20px ;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.reservation_form .user-info .name{
+    margin-bottom: 20px;
+}
+
+.reservation_form .user-info p{
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(97, 95, 95);
+}
+
+.reservation_form .user-info input{
+    margin-top: 3px;
+    height:48px;
+    border: none;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+}
+.reservation_form .user-info input::placeholder{
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.reservation_form .user-info .input_name{
+    width: 100%;
+    
+}
+
+.reservation_form .user-info .phone{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.reservation_form .user-info .phone .input_phone{
+    width: 60%;
+}
+.reservation_form .user-info .phone .btn_check{
+    width: 35%;
+    height: 48px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #fff;
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+}
+
+.user-info p.txt{
+    margin-top: 5px;
+    margin-bottom: 50px;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+/* pay_method */
+
+.pay_method{
+    margin-top: 50px;
+    margin-right: 100px;
+}
+
+.pay_method h2{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.pay_method .payment{
+    width: 100%;
+}
+
+.pay_method .payment .row{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.pay_method .payment .row .radio-label {
+    display: flex;
+    align-items: center;
+    width:20%;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+  
+.pay_method .payment .row .radio-custom {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-right: 10px;
+}
+  
+.pay_method .payment .row .box:checked + .radio-custom {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+  
+.pay_method .payment .row .box {
+    display: none;
+}
+
+/* banner */
+
+/* reservation_info */
+.reservation_info{
+    width: 340px;
+    margin-top: 100px;
+    padding: 25px;
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+}
+
+.reservation_info h2{
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight:600;
+}
+
+.reservation_info .pic{
+    height: 120px;
+    margin-bottom: 20px;
+
+}
+
+.reservation_info .pic img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.reservation_info .room_info table{
+    width: 100%;
+    line-height: 21px;
+    font-size: 14px;
+}
+
+.reservation_info .room_info table tr{
+    height: 40px;
+}
+
+.reservation_info .room_info table th{
+    text-align: start;
+    color: rgb(134, 128, 150);
+}
+
+/* pay_info */
+
+.pay_info{
+    width: 340px;
+    margin-top: 20px;
+    padding: 25px;
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+}
+
+.pay_info h2{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.pay_info .price_re{
+    padding-bottom:15px ;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
+
+.pay_info .price_re span:first-child{
+    font-size: 13px;
+    color: rgb(134, 133, 133);
+}
+
+.pay_info .price_total{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pay_info .price_total span:first-child{
+    font-size: 13px;
+}
+
+.pay_info .price_total span:last-child{
+    font-size: 18px;
+    font-weight: 600;
+    color: red;
+}
+
+.pay_info .btn{
+    margin-top: 20px;
+    width : 100%
+}
+
+.pay_info .btn button{
+    width: 100%; 
+    height: 48px;
+    font-size: 18px;
+    color: #fff;
+    background-color:#1273e4 ;
+    border: none;
+    border-radius: 10px;
+}
+
+.pay_info .btn button:hover{
+    cursor: pointer;
+}

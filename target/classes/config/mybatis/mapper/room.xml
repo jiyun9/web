@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="r">
+
+	<!-- 객실 전체조회 -->
+	<select id="room_list" resultType="room">
+		SELECT * FROM ROOM WHERE
+		BU_EMAIL = #{bu_email} ORDER BY RO_NUM
+	</select>
+
+	<!-- 객실 추가하기 -->
+	<insert id="room_insert" parameterType="room">
+		insert into room values(
+		SEQ_ROOM_NUM.NEXTVAL,
+		#{bu_email},
+		#{ro_count},
+		#{ro_name},
+		#{ro_price},
+		#{checkin},
+		#{checkout},
+		#{ro_info},
+		#{ro_picture},
+		#{picture_count}
+		)
+	</insert>
+
+	<!-- 객실정보 하나 조회 -->
+	<select id="room_selectOne" parameterType="int"
+		resultType="room">
+		SELECT * FROM ROOM WHERE RO_NUM = #{ro_num}
+	</select>
+
+	<!-- 객실정보 수정 -->
+	<update id="room_update" parameterType="room">
+		UPDATE ROOM SET
+		RO_COUNT= #{ro_count},
+		RO_NAME = #{ro_name},
+		RO_PRICE = #{ro_price},
+		CHECKIN = #{checkin},
+		CHECKOUT = #{checkout},
+		RO_INFO = #{ro_info},
+		RO_PICTURE = #{ro_picture}
+		WHERE RO_NUM = #{ro_num}
+	</update>
+
+	<!-- 객실 삭제 -->
+	<delete id="room_delete" parameterType="int">
+		DELETE FROM ROOM WHERE
+		RO_NUM = #{num}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
