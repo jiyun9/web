@@ -5,9 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	
-</style>
 </head>
 <body>
 <h3>상세조건</h3>
@@ -68,7 +65,6 @@
 
 		let map = new kakao.maps.Map(container, options);
 		
-		function map_
 </script>
 </body>
 </html>

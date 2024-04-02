@@ -25,7 +25,7 @@ public class SearchController {
 	final SearchDAO search_dao;
 	final BusinessDAO business_dao;
 	
-	//¸ŞÀÎ °Ë»ö ±â´É-¿¹¾à °¡´ÉÇÑ ¼÷¹Ú¾÷¼Ò °Ë»ö
+	//ë©”ì¸ ê²€ìƒ‰ ê¸°ëŠ¥-ì˜ˆì•½ ê°€ëŠ¥í•œ ìˆ™ë°•ì—…ì†Œ ê²€ìƒ‰
 	@RequestMapping("search")
 	public String main_search(Model model, String checkin_d, String checkout_d, int count, String txt) {
 
@@ -45,7 +45,7 @@ public class SearchController {
 
 	}
 
-	// Ä«Å×°í¸®º°·Î º¸±â
+	// ì¹´í…Œê³ ë¦¬ë³„ë¡œ ë³´ê¸°
 	@RequestMapping("category")
 	public String view_accomoList(Model model, @RequestParam(value = "bu_id", required = true) int bu_id) {
 		
@@ -57,7 +57,7 @@ public class SearchController {
 	}
 	
 	
-	// °´½Çº¸±â(¼÷¹Ú¾÷¼Ò ¼±ÅÃ ½Ã)
+	// ê°ì‹¤ë³´ê¸°(ìˆ™ë°•ì—…ì†Œ ì„ íƒ ì‹œ)
 	@RequestMapping("room_view")
 	public String room_view(Model model, String bu_email,String bu_title, String checkin_d,String checkout_d) {
 		//System.out.println(checkin);
@@ -71,11 +71,6 @@ public class SearchController {
 		return MyCommon.VIEW_PATH + "main/search_room.jsp";
 	}
 	
-//	// map °Ë»ö
-//	@RequestMapping("map_search")
-//	@ResponseBody
-//	public String mapSearch() {
-//		
-//	}
+	
 
 }
