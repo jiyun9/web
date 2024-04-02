@@ -50,6 +50,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM ROOM WHERE
 		RO_NUM = #{num}
 	</delete>
+	
+	<!-- 사업자 주소를 가져와 지도로 출력 -->
+	<select id="addrList" parameterType="java.util.List">
+		SELECT BU_ADDR , BU_ID , BU_TITLE , BU_PICTURE 
+		FROM BUSINESS 
+		WHERE BU_ADDR = #{bu_addr}
+	</select>
 </mapper>
 
 

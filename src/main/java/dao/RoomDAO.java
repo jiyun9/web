@@ -27,8 +27,6 @@ public class RoomDAO {
 //		System.out.println(dto.getRo_picture());
 //		System.out.println(dto.getPicture_count());
 //		
-		
-		
 		return sqlSession.insert("r.room_insert",dto);
 	}
 	
@@ -50,6 +48,12 @@ public class RoomDAO {
 	//객실 삭제
 	public int delete(int num) {
 		return sqlSession.delete("r.room_delete",num);
+	}
+	
+	// map 조회
+	public List<Object> addrList(SearchDTO searchDTO) {
+		
+		return sqlSession.selectList("r.addrList", searchDTO);
 	}
 	
 }

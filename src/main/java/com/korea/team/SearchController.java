@@ -2,6 +2,7 @@ package com.korea.team;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,6 +72,11 @@ public class SearchController {
 		return MyCommon.VIEW_PATH + "main/search_room.jsp";
 	}
 	
-	
+//	@RequestMapping("map")
+//	public String map(SearchDTO searchDTO) {
+//		Map<Object, Object> map = new HashMap<Object, Object>();
+//		
+//		map = room_dao.addrList(searchDTO);
+//	}
 
 }
