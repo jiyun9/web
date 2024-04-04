@@ -78,5 +78,6 @@ public class SearchController {
 //		
 //		map = room_dao.addrList(searchDTO);
 //	}
+	
 
 }
