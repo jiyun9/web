@@ -61,8 +61,8 @@
 				<c:if test="${not empty m_email}">
 				<div class="info col d-flex justify-content-end">
 					<ul class="gnb d-flex align-items-center">
-						<li><a href="">지도검색</a></li>
-						<li><a href="">내 정보</a></li>
+						<li><a href="map">지도검색</a></li>
+						<li><a href="member_info?m_email=${m_email.m_email}">내 정보</a></li>
 						<li><a href="rev_list?m_email=${m_email.m_email}">예약 내역</a></li>
 						<li><a href="logout">로그아웃</a></li>	
 					</ul>

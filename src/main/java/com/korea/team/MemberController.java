@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -115,5 +116,11 @@ public class MemberController {
 		return null;
 	}
 	
-
+	@RequestMapping("member_info")
+	public String member_info(Model model, String m_email) {
+		MemberDTO dto = member_dao.memberInfo(m_email);
+		
+		model.addAttribute("dto", dto);
+		return MyCommon.VIEW_PATH + "member/member_info.jsp";
+	}
 }
