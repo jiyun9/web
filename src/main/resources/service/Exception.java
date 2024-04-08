@@ -16,7 +16,7 @@ import util.MyCommon;
 @ControllerAdvice
 public class Exception {
 	
-
+	/**
 	@ExceptionHandler(NestedServletException.class)
 	public String nestException(){
 		System.out.println("nest");
@@ -60,4 +60,5 @@ public class Exception {
 		System.out.println("Index");
 		return MyCommon.VIEW_PATH + "error.jsp";
 	}
+	**/
 }

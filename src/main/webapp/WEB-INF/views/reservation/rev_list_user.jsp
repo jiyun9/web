@@ -8,165 +8,89 @@
 <title>Insert title here</title>
 <script src="resources/js/HttpRequest.js"></script>
 <style>
-.container {
-	display: flex;
-	margin-top: 120px;
-}
-
-#photo_box {
+	.inner{
 	margin: 0 auto;
-	margin-top: 60px;
-	margin-left: -510px;
-	margin-right: 20px;
-	width: 512px;
+	width: 1300px;
+	display: flex; 
+	flex-direction: column;
+	align-items: center; 
+}
+
+.inner button{
+	margin-top:20px;
+	height: 100%;
+	background-color: #fff;	
+}
+
+.inner .revList{
+	display: flex; justify-content: space-between;
+	width: 850px;
 	height: 250px;
-	border: 1px solid black;
-	overflow: auto;
-	position: relative;
-	border-collapse: collapse;
+	margin-bottom: 10px;
 }
 
-.photo_type {
-	width: 300px;
-	height: 200px;
-	border: 1px solid green;
-	float: left;
-	margin: 10px;
-	position: relative;
+.inner .revList .pic{
+	height: 100%;
+	width: 60%;
+	margin-right: 20px;
+}
+.inner .revList .pic img{
+	height: 100%;
+	width:100%;
+	border-radius: 15px;
 }
 
-.div1 {
-	width: 170px;
-	height: 50px;
-	margin-right: -6px;
-	border-collapse: collapse;
-	margin-bottom: -30px;
-	background-color: transparent;
-	border-bottom: none;
+.inner .revList .rev_info{
+	width:70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.inner .revList .rev_info h2{
+	text-align: start;
 }
 
-.div2 {
-	width: 170px;
-	height: 50px;
-	margin-right: -6px;
-	border-collapse: collapse;
-	margin-bottom: -30px;
-	background-color: transparent;
-	border-bottom: none;
+.inner .revList .rev_info .txt{
+text-align: start;
 }
 
-.div3 {
-	width: 170px;
-	height: 50px;
-	margin-right: -6px;
-	border-collapse: collapse;
-	margin-bottom: -30px;
-	background-color: transparent;
-	border-bottom: none;
+.inner .revList .rev_info .txt p{
+	margin-top: 10px;
 }
 
-table, tr, td {
-	position: relative;
-	top: 3px;
-	border: none;
-	padding: 4px;
-}
-
-.menu {
-	margin-left: 300px;
-	float: left;
-	margin-top: -70px;
-}
-
-.menu ul li {
-	list-style: none;
-	padding: 0;
-	margin-bottom: 5px;
-}
-
-.menu ul li input[type="button"] {
-	font-size: 16px;
-	width: 180px;
-	height: 50px;
-	background-color: transparent;
-}
-
-.b_container {
-	margin-left: 130px;
-}
-
-.div2 :active {
-	border-bottom: 2px solid black;
+.inner .revList .rev_info .txt .price{
+	margin-right: 20px;
+	text-align: end;
+	font-size: 24px;
 }
 </style>
 
 <script>
-	function popup() {
-		window.open("popup", "예약정보", "width=400, height=600, left=100, top=50");
-	}
 
-	function rev_del() {
-		window.open("del", "예약취소", "width=400, height=600, left=100, top=50");
-	}
 </script>
-
 </head>
 <body>
-
-		<div class="menu">
-			<ul>
-				<li style="padding-top: 75px;"><input type="button"
-					value="예약내역" style="width: 150px; height: 50px;"
-					onclick="location.href='rev_info'"></li>
-				<li><input type="button" value="내정보관리"
-					style="width: 150px; height: 50px;"
-					onclick="location.href='my_info'"></li>
-				<li><input type="button" value="내가 작성한리뷰"
-					style="width: 150px; height: 50px;"
-					onclick="location.href='MyReview'"></li>
-				<li><input type="button" value="찜한숙소"
-					style="width: 150px; height: 50px;" onclick="location.href='zzim'"></li>
-			</ul>
-		</div>
-
-		<div class="container">
-			<div class="b_container" id="button">
-				<input type="button" style="width: 172px; height: 50px;"
-					class="div1" value="예약 완료" onclick="location.href='rev_list'">
-				<input type="button" style="width: 172px; height: 50px;"
-					class="div2" value="예약 취소" onclick="location.href='rev_del'">
-				<input type="button" style="width: 172px; height: 50px;"
-					class="div3" value="이용 완료" onclick="location.href='usingwon'">
-			</div>
-
-			<form>
-				<c:forEach var="dto" items="${list}">
-					<div id="photo_box">
-						<p>${dto.re_num }</p>
-						<table border="1" width="170">
-							<tr>
-								<td>${dto.bu_title}</td>
-							</tr>
-							<tr>
-								<td>${dto.ro_name}</td>
-							</tr>
-							<tr>
-								<td>${dto.checkin_date }~${dto.checkout_date }</td>
-							</tr>
-							<tr>
-								<td>${dto.price}</td>
-							</tr>
-							<tr>
-								<td>${dto.payment }</td>
-							</tr>
-							<tr>
-								<td align="center"><input type="button" value="예약 정보"
-									onclick="popup()"></td>
-							</tr>
-						</table>
+	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+	
+	<div class="inner" align="center"><!-- 예약내역 틀-->
+		<p>예약내역</p>
+		<c:forEach var="dto" items="${list}">
+			<div class="revList">
+				<div class="pic">
+					<img align="left" src="resources/room_img/room1.jpg">
+				</div>
+				<div class="rev_info"> <!-- 예약 내역 화면 -->
+					<h2 id="roomName">${dto.ro_name}</h2>
+					<div class="txt">
+						<p>체크인 날짜 : ${dto.checkin_date}</p>
+						<p>체크아웃 날짜 : ${dto.checkout_date}</p>
+						<p>예약인원 : ${dto.re_people}명</p>
+						<p>결제일 : ${dto.regdate}</p>
+						<p>예약상태 : ${dto.status}</p>
 					</div>
-				</c:forEach>
-			</form>
-		</div>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
 </body>
 </html>
