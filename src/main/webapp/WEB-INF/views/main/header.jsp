@@ -28,10 +28,11 @@
 				</div>
 				
 				<div class="col d-flex align-items-center">
+				<form action="search" method="post">
 		            <div class="search_option">
-		              <input type="text" class="search_txt" placeholder="검색" name="text"/>
-		              <input type="date" class="" id="checkin2" name="checkin2" placeholder="" value="${checkin_d}" />
-		              <input type="date" class="" id="checkout2" name="checkout2" placeholder="" value="${checkout_d}" />
+		              <input type="text" class="search_txt" placeholder="검색" name="txt"/>
+		              <input type="date" class="" id="checkin2" name="checkin_d" placeholder="" value="${checkin_d}" />
+		              <input type="date" class="" id="checkout2" name="checkout_d" placeholder="" value="${checkout_d}" />
 		              <span>인원</span>
 		              <select name="count" id="">
 		                <option value="1">1</option>
@@ -39,8 +40,9 @@
 		                <option value="3">3</option>
 		                <option value="4">4</option>
 		              </select>
-		              <button type="button" onclick="">검색</button>
+		              <button type="submit" onclick="">검색</button>
 		            </div>
+		        </form>
           		</div>
 				
 				
@@ -50,7 +52,7 @@
 				<c:if test="${empty m_email and empty bu_dto}">
 				<div class="info col d-flex justify-content-end">
 					<ul class="gnb d-flex align-items-center">
-						<li><a href="map">지도검색</a></li>
+						<li><a href="">지도검색</a></li>
 						<li><a href="login_form" onclick="check()">예약내역</a></li>
 						<li><a href="login_form">로그인<i class="bi bi-person-circle"></i></a></li>
 					</ul>
@@ -61,8 +63,8 @@
 				<c:if test="${not empty m_email}">
 				<div class="info col d-flex justify-content-end">
 					<ul class="gnb d-flex align-items-center">
-						<li><a href="map">지도검색</a></li>
-						<li><a href="member_info?m_email=${m_email.m_email}">내 정보</a></li>
+						<li><a href="">지도검색</a></li>
+						<li><a href="">내 정보</a></li>
 						<li><a href="rev_list?m_email=${m_email.m_email}">예약 내역</a></li>
 						<li><a href="logout">로그아웃</a></li>	
 					</ul>
@@ -73,11 +75,12 @@
 				<c:if test="${not empty bu_dto}">
 				<div class="info col d-flex justify-content-end">
 					<ul class="gnb d-flex align-items-center">
-						<li><a href="roomList_form">사업자 메뉴</a></li>
+						<li><a href="businessPage?bu_email=${bu_dto.bu_email}">사업자 정보</a></li>
+						<!-- <li><a href="">예약 내역</a></li> -->
 						<li><a href="bu_logout">로그아웃</a></li>	
 					</ul>
 				</div>
-				</c:if>
+				</c:if> 
 			</div>
 		</div>
 	</header>
