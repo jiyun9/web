@@ -14,24 +14,32 @@
 
 	<main>
 		
+		
+		
 		<div class="inner">
 
 			<div class="others">
 				<!-- 나중에 다른거 들어갈 공간 -->
 			</div>
 
+
+									
+
+
 			<div class="accom-area">
 				<c:forEach var="dto" items="${list}">
 					<form action="room_view" method="post">
 						<input type="hidden" name ="bu_email" value ="${dto.bu_email}">		
 						<input type="hidden" name ="bu_title" value ="${dto.bu_title}">
+						
+						<!-- 여기서도 받아온 checkin_d값을 계속 넘겨주기 위해 form태그 안에 작성 -->
 						<input type="hidden" name ="checkin_d" value ="${checkin_d}">
 						<input type="hidden" name ="checkout_d" value ="${checkout_d}">
-				
+					
 					<button class="btn">
 						<a>
 							<div class="pic">
-								<img src="resources/business_img/${dto.bu_title}/${dto.bu_picture}" style="width: 346px; height: 229px;">
+								<img src="resources/business_img/${dto.bu_title}/${dto.bu_picture}">
 							</div>
 							<div class="accom-info">
 								<div class="bu_info">

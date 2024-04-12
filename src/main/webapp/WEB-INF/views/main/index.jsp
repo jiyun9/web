@@ -53,27 +53,27 @@
 		<section class="category">
 			<div class="container-xl">
 				<h2 class="title">🌈원하는 숙소를 찾아보세요🌈</h2>
-				<div class="row g-0">
+				<div class="cate row g-0">
 					<div class="col">
-						<a href="category?bu_id=1"> <img
+						<a href="search?bu_id=1"> <img
 							src="resources/main_img/main_hotel.jpg" alt=""> <span
 							class="view">호텔</span>
 						</a>
 					</div>
 					<div class="col">
-						<a href="category?bu_id=2"> <img
+						<a href="search?bu_id=2"> <img
 							src="resources/main_img/main_motel.webp" alt=""> <span
 							class="view">모텔</span>
 						</a>
 					</div>
 					<div class="col">
-						<a href="category?bu_id=3"> <img
+						<a href="search?bu_id=3"> <img
 							src="resources/main_img/main_pension.webp" alt=""> <span
 							class="view">펜션</span>
 						</a>
 					</div>
 					<div class="col">
-						<a href="category?bu_id=4"> <img
+						<a href="search?bu_id=4"> <img
 							src="resources/main_img/main_resort.jpg" alt=""> <span
 							class="view">리조트</span>
 						</a>
@@ -91,6 +91,29 @@
 		crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script type="text/javascript" src="resources/js/index.js"></script>
+	<script> 
+	document.addEventListener("DOMContentLoaded", function() {
+	    let links = document.querySelectorAll(".cate .col a");
+
+	    // input 태그 값이 변경될 때마다 실행되는 함수
+	    function updateLinkURLs() {
+	        let checkinValue = document.getElementById("checkin").value;
+	        let checkoutValue = document.getElementById("checkout").value;
+
+	        // a 태그 선택
+	        links.forEach(function(link) {
+	            // href 속성에 checkin_d와 checkout_d 값을 추가
+	            link.href = link.href.split('&')[0]; // 기존의 링크 초기화
+	            link.href += "&checkin_d=" + checkinValue + "&checkout_d=" + checkoutValue;
+	        });
+	    }
+
+	    // 페이지 로드시와 input 값이 변경될 때 updateLinkURLs 함수 실행
+	    updateLinkURLs();
+	    document.getElementById("checkin").addEventListener("input", updateLinkURLs);
+	    document.getElementById("checkout").addEventListener("input", updateLinkURLs);
+	});
+	</script>
 	
 </body>
 </html>
