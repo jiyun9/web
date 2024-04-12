@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+	
 	<table border="1">
 		<caption>내 정보 관리</caption>
 		<tr>
